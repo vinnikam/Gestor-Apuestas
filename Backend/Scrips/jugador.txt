@@ -1,0 +1,18 @@
+-- Table: public.jugador
+
+-- DROP TABLE public.jugador;
+
+CREATE TABLE public.jugador
+(
+    cedula integer NOT NULL,
+    nombre character varying COLLATE pg_catalog."default" NOT NULL,
+    apellido character varying COLLATE pg_catalog."default" NOT NULL,
+    correo character varying COLLATE pg_catalog."default" NOT NULL,
+    "contraseña" character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT usuario_pkey PRIMARY KEY (cedula)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.jugador
+    OWNER to postgres;

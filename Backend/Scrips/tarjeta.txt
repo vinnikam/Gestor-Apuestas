@@ -1,0 +1,31 @@
+Table: public.tarjeta
+
+-- DROP TABLE public.tarjeta;
+
+CREATE TABLE public.tarjeta
+(
+    numero integer NOT NULL,
+    cv integer NOT NULL,
+    cedula_jugador integer,
+    fecha_exp character varying COLLATE pg_catalog."default",
+    dinero integer DEFAULT 0,
+    CONSTRAINT tarjeta_pkey PRIMARY KEY (numero),
+    CONSTRAINT cedula_jugador FOREIGN KEY (cedula_jugador)
+        REFERENCES public.jugador (cedula) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.tarjeta
+    OWNER to postgres;
+
+-- Index: fki_cedula_jugador
+
+-- DROP INDEX public.fki_cedula_jugador;
+
+CREATE INDEX fki_cedula_jugador
+    ON public.tarjeta USING btree
+    (cedula_jugador ASC NULLS LAST)
+    TABLESPACE pg_default;
