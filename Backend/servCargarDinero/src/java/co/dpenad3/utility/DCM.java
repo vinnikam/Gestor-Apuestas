@@ -11,7 +11,7 @@ package co.dpenad3.utility;
  */
 public class DCM {
     
-   public static String URL_BD= "jdbc:postgresql://localhost:5432/registro";
+   public static String URL_BD= "jdbc:postgresql://localhost:5432/proyecto";
            //"jdbc:postgresql://192.168.0.26:5432/customerdb";
    //jdbc:mysql://localhost:3306/feria_ucentral"+"?autoReconnect=true&useSSL=false
    public static String USUARIO_BD = "postgres";

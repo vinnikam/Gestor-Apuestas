@@ -5,7 +5,6 @@
  */
 package co.dpenad3.dto;
 
-import java.sql.Date;
 
 /**
  *
@@ -18,8 +17,14 @@ public class Datos {
     int cv;
     int numero_tarjeta;
     String fecha_exp;
-    int dinero;
+    int cupo_total=(int) (Math.random() * 5000000 + 100000);
+    int cupo_disponible = cupo_total;
 
+    
+    public int getCupo_disponible() {
+        return cupo_disponible;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -60,11 +65,5 @@ public class Datos {
         this.fecha_exp = fecha_exp;
     }
 
-    public int getDinero() {
-        return dinero;
-    }
 
-    public void setDinero(int dinero) {
-        this.dinero += dinero;
-    }
 }

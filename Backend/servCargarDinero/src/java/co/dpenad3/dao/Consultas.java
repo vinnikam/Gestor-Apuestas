@@ -27,18 +27,19 @@ public class Consultas {
         objConexion = null;
         int resInsert = 0;
 
-        String sqlInsert="INSERT INTO tarjeta(numero, cv, cedula_jugador, fecha_exp, dinero) VALUES (?, ?, ?, ?, ?);";
+        String sqlInsert="INSERT INTO tarjeta(numero, cv, cedula_jugador, fecha_exp, cupo_total, cupo_disp) VALUES (?, ?, ?, ?, ?, ?);";
 
         try
         {
             objConexion = ConexionBD.obtenerConexionBaseDeDatos();
+            
             objPreparedStatement = objConexion.prepareStatement(sqlInsert);
-
             objPreparedStatement.setInt(1, obj.getNumero_tarjeta());
             objPreparedStatement.setInt(2, obj.getCv());
             objPreparedStatement.setInt(3, obj.getCedula());
             objPreparedStatement.setString(4, obj.getFecha_exp());
-            objPreparedStatement.setInt(5, obj.getDinero());
+            objPreparedStatement.setInt(5, obj.getCupo_disponible());
+            objPreparedStatement.setInt(6, obj.getCupo_disponible());
           
 
             resInsert = objPreparedStatement.executeUpdate();
